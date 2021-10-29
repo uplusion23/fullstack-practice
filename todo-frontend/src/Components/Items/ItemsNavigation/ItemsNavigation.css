@@ -1,0 +1,228 @@
+@import url('https://css.gg/template.css');
+@import url('https://css.gg/quote.css');
+@import url('https://css.gg/comment.css');
+
+.items-navigation {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  align-items: center;
+  color: rgb(var(--color-muted));
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+.items-navigation > .logo {
+  display: flex;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: var(--border-radius);
+  background: rgb(var(--color-black));
+  color: rgb(var(--color-white));
+  margin: 0 20px 0 0;
+}
+
+.items-navigation > .create-new,
+.items-navigation > .logout {
+  display: flex;
+  position: relative;
+  text-decoration: none;
+  color: rgb(var(--color-muted));
+  padding: 0 5px;
+  margin: 0;
+  transition: all 0.1s linear;
+}
+
+.items-navigation > .create-new::after,
+.items-navigation > .logout::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: currentColor;
+  transition: inherit;
+}
+
+.items-navigation > .create-new:hover::after,
+.items-navigation > .logout:hover::after {
+  width: 100%;
+}
+
+.items-navigation > .logout {
+  margin-left: 30px;
+}
+
+.items-navigation > .create-new {
+  margin-left: auto;
+  color: rgb(var(--color-primary));
+}
+
+.items-navigation > .hide {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 97;
+}
+
+.items-navigation > .todo-creator {
+  display: block;
+  position: absolute;
+  right: 60px;
+  width: 450px;
+  height: auto;
+  background: rgb(var(--background-1));
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  z-index: 98;
+  box-sizing: border-box;
+  padding: 30px;
+
+  transition: all 0.13s linear;
+  top: calc(100% + 40px);
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity, top;
+}
+
+.items-navigation > .todo-creator::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -16px;
+  right: 60px;
+  width: 30px;
+  height: 30px;
+  transform: rotate(45deg);
+  background: inherit;
+}
+
+.items-navigation > .todo-creator > * {
+  transition: all 0.3s ease;
+  transition-delay: 0.12s;
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: opacity, transform;
+}
+
+.items-navigation > .todo-creator.active {
+  top: calc(100% + 20px);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.items-navigation > .todo-creator.active > * {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.items-navigation > .todo-creator > h1 {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  color: rgb(var(--color-muted));
+  margin: 0 0 10px 0;
+  padding: 0;
+  font-size: 1.3rem;
+}
+
+.items-navigation > .todo-creator > .group {
+  display: grid;
+  position: relative;
+  width: 100%;
+  min-height: 40px;
+  padding: 10px 5px 10px 0;
+  margin: 0 0 20px 0;
+  box-sizing: border-box;
+  border: 1.5px solid rgba(var(--color-muted), 0.3);
+  border-radius: var(--border-radius);
+  grid-template-columns: 40px minmax(0, 1fr);
+}
+
+.items-navigation > .todo-creator > .group > span {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(var(--color-accent));
+}
+
+.items-navigation > .todo-creator > .group.tall > span {
+  justify-content: flex-start;
+}
+
+.items-navigation > .todo-creator > .group > input,
+.items-navigation > .todo-creator > .group > textarea {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+  padding: 0 25px;
+  color: rgb(var(--color-muted));
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+  user-select: auto;
+  border: none;
+}
+
+.items-navigation > .todo-creator > .group > textarea {
+  resize: vertical;
+  min-height: 100px;
+  max-height: 300px;
+}
+
+.items-navigation > .todo-creator > .todo-creator-buttons {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.items-navigation > .todo-creator > .todo-creator-buttons > a {
+  display: block;
+  position: relative;
+  width: 45%;
+  height: 50px;
+  line-height: 50px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgb(var(--color-accent));
+  background-color: transparent;
+  text-align: center;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: all 0.1s linear;
+}
+
+.items-navigation > .todo-creator > .todo-creator-buttons > a.primary {
+  color: rgb(var(--color-white));
+  background-color: rgba(var(--color-accent), 1);
+  border-radius: var(--border-radius);
+}
+
+.items-navigation > .todo-creator > .todo-creator-buttons > a:hover {
+  background: rgba(var(--color-accent), 0.1);
+}
+
+.items-navigation > .todo-creator > .todo-creator-buttons > a.primary:hover {
+  background: rgba(var(--color-accent), 1);
+}

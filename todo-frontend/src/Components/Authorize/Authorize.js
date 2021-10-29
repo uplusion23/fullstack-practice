@@ -60,7 +60,7 @@ const Authorize = props => {
 
   return (
     <div className={isProcessing ? 'authorize processing' : 'authorize'}>
-      <h1><i className="gg-ericsson"></i> To-Done</h1>
+      <h1><i className="gg-template"></i> To-Done</h1>
       <div className={error ? 'authorize-form shake' : 'authorize-form'} >
         <h1>
           {
@@ -83,10 +83,14 @@ const Authorize = props => {
           maxLength="25"
           onKeyUp={e => setPassword(e.target.value)} />
         <div className="authorize-form-buttons">
-          <a href="#" className="primary" onClick={submitClickHandler}>Submit</a>
+          <a href="#" className="primary" onClick={submitClickHandler}>
+            {
+              isRegisterring ? 'Confirm' : 'Sign In'
+            }
+          </a>
           <a href="#" onClick={registerClickHandler}>
             {
-              isRegisterring ? 'Register' : 'Sign In'
+              isRegisterring ? 'Back To Login' : 'Create Account'
             }
           </a>
         </div>
