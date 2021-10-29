@@ -8,7 +8,6 @@ const Items = props => {
 
   const getItems = () => {
     TodoHandler.getUserItems(props.user.id).then(items => {
-      console.log(items);
       setItems(items);
     });
   }

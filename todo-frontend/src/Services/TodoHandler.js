@@ -46,9 +46,7 @@ const TodoHandler = {
   },
   deleteItem: function (itemId, userId) {
     return new Promise((resolve, reject) => {
-      axios.delete(this.baseUrl + `/${itemId}`, {
-        userId: userId
-      }).then(response => {
+      axios.delete(this.baseUrl + `/${itemId}/${userId}`).then(response => {
         resolve(response.data);
       }).catch(error => {
         if (error.response) return reject(error.response);

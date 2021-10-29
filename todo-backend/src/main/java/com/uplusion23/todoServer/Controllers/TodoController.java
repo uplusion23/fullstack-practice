@@ -2,6 +2,8 @@ package com.uplusion23.todoServer.Controllers;
 
 import com.uplusion23.todoServer.Models.Todo;
 import com.uplusion23.todoServer.Repositories.TodoRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -52,11 +54,12 @@ public class TodoController {
         }
     }
 
-    @DeleteMapping("/items/{id}")
-    public Object deleteItem(@PathVariable Long id, @RequestBody Long userId) {
+    @DeleteMapping("/items/{id}/{userId}")
+    public Object deleteItem(@PathVariable Long id, @PathVariable Long userId) {
         try {
             if (this.repository.findById(id).get().getUserId() == userId) {
                 this.repository.deleteById(id);
+                System.out.println("Deleted item");
                 return Map.of("response", "success", "data", "Deleted item with id " + id);
             } else {
                 return Map.of("error", "You are not authorized to delete this item");
@@ -64,5 +67,13 @@ public class TodoController {
         } catch (Exception e) {
             return Map.of("error", "Item not found");
         }
+    }
+
+    /* Because Delete is being terrible */
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public void handle(HttpMessageNotReadableException e) throws Exception {
+        System.out.println(e.toString());
+        throw e;
     }
 }
