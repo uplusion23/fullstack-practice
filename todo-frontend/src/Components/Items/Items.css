@@ -1,0 +1,92 @@
+@import url('https://css.gg/list.css');
+
+.items {
+  display: grid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 0 60px 0;
+  grid-template-rows: 60px 60px minmax(0, 1fr);
+  grid-row-gap: 20px;
+  align-items: center;
+  background-color: rgb(var(--background-0));
+  user-select: none;
+}
+
+.items > h1 {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgb(var(--color-primary));
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.items > h1 > i {
+  --ggs: 1.3;
+  margin: 0 20px 0 0;
+}
+
+.items > .items-list {
+  display: flex;
+  position: relative;
+  width: 600px;
+  height: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.items > .items-list > .todo-item {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 150px;
+  border-radius: var(--border-radius);
+  background: rgb(var(--background-1));
+  box-shadow: var(--box-shadow);
+  margin: 0 0 20px 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.items > .items-list > .todo-item[data-completed="true"] {
+  opacity: 0.6;
+}
+
+.items > .items-list > .todo-item > h1 {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0 0 10px 0;
+  color: rgb(var(--color-primary));
+  font-size: 1.5rem;
+}
+
+.items > .items-list > .todo-item > p {
+  display: block;
+  position: relative;
+  width: 100%;
+  line-height: 1.1rem;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0 0 10px 0;
+  color: rgb(var(--color-muted));
+  font-size: 1rem;
+}

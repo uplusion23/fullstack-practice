@@ -1,0 +1,2 @@
+package com.uplusion23.todoServer.Configuration;public class WebSecurityConfiguration {
+}

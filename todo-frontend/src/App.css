@@ -1,0 +1,13 @@
+:root {
+  --background-0: 241, 245, 255;
+  --background-1: 255, 255, 255;
+
+  --color-primary: 44, 78, 125;
+  --color-muted: 124, 150, 182;
+  --color-accent: 0, 125, 255;
+  --color-white: 240, 240, 255;
+  --color-red: 226, 110, 104;
+
+  --border-radius: 8px;
+  --box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
